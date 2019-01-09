@@ -57,14 +57,23 @@ DEV.forceValidate = off
 #Force re-build of derived objects tables at start.
 
 DEV.forceScan = off
+
 DEV.P2P.NumBootstrapConnections = 1
+
 BRS.allowedBotHosts = *
+
 DEV.digitalGoodsStore.startBlock = 0
+
 DEV.automatedTransactions.startBlock = 0
+
 DEV.atFixBlock2.startBlock = 0
+
 DEV.atFixBlock3.startBlock = 0
+
 DEV.atFixBlock4.startBlock = 0
+
 DEV.preDymaxion.startBlock = 0
+
 DEV.poc2.startBlock = 0
 
 If you just need testnet wallet for testing please use this link (http://3.16.150.48:6876/index.html#). If you want to use your own desired peer, you can just change ip addresses. 
