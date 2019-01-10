@@ -77,3 +77,34 @@ DEV.preDymaxion.startBlock = 0
 DEV.poc2.startBlock = 0
 
 If you just need testnet wallet for testing please use this link (http://3.16.150.48:6876/index.html#). If you want to use your own desired peer, you can just change ip addresses. 
+
+
+To make your peer public you will need to change the following in your properties file.
+
+#API network 
+
+API.Port = 8125 
+
+API.Listen = 0.0.0.0
+
+API.allowed = *;0.0.0.0
+
+If for any reason you need to reset your peer, a fast easy way to do it is as follows:
+
+Stop node, in a terminal execute:
+
+mysql -u root
+
+#Once in the mysql shell execute the following commands, assumption is made $yourdb name is your database's name and $youruser is well your user.
+
+drop database $yourdatabase;
+
+create database $yourdatabase;
+
+GRANT ALL PRIVILEGES ON $yourdatabase.* TO '$youruser'@'localhost’;
+
+ALTER DATABASE $yourdatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+Start node again, wait till sync is complete. 
+
+If you hit any snags, let me know. Also feel free to update this via PR. Thanks.
