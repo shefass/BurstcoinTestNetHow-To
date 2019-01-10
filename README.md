@@ -82,11 +82,13 @@ Stop node, in a terminal execute:
 ````
 mysql -u root
 ````
-Once in the mysql shell execute the following commands, assumption is made $yourdb name is your database's name and $youruser is well your user.
+Once in the mysql shell execute the following commands, assumption is made $yourdatabase name is your database's name and $youruser is well your user.
 ````
 DROP DATABASE $yourdatabase;
 CREATE DATABASE $yourdatabase;
 ALTER DATABASE $yourdatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON $yourdatabase.* TO '$youruser'@'localhost';
+FLUSH PRIVILEGES;
 ````
 Start node again, wait till sync is complete. 
 
