@@ -34,13 +34,13 @@ DEV.TimeWarp = 1
 
 #Peers used for testnet only.
 
-DEV.P2P.BootstrapPeers = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun
+DEV.P2P.BootstrapPeers = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com
 
 #Testnet only. These peers will always be sent rebroadcast transactions. They are also automatically added to 
 
 DEV.P2P.BootstrapPeers, so no need for duplicates.
 
-DEV.P2P.rebroadcastTo = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun
+DEV.P2P.rebroadcastTo = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com
 
 #Force winning with every deadline
 
