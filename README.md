@@ -40,7 +40,7 @@ DEV.P2P.BootstrapPeers = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; test
 
 DEV.P2P.BootstrapPeers, so no need for duplicates.
 
-DEV.P2P.rebroadcastTo = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com
+DEV.P2P.rebroadcastTo = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com; test-burst.megash.it
 
 #Force winning with every deadline
 
