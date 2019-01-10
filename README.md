@@ -94,3 +94,7 @@ ALTER DATABASE $yourdatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 Start node again, wait till sync is complete. 
 
 If you hit any snags, let me know. Also feel free to update this via PR. Thanks.
+
+Originally adapted from the following: https://burstwiki.org/wiki/Testnet
+
+Thank you PoCC and BurstWiki contributors!
