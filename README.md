@@ -45,15 +45,12 @@ P2P.savePeers=true
 P2P.usePeersDb=true
 P2P.getMorePeers=true
 
-#### Personal Customization ####
+#### Personal Customization #### 
 P2P.shareMyAddress=true
 # our examples are aya.onthewifi.com OR testnet.burst.fun OR testddns.gotdns.com OR test-burst.megash.it
 P2P.myAddress=fqdn.to.your.wallet
-DEV.P2P.Port=8123
-DEV.P2P.Listen=::
-# Change to your needs, this will be displayed in Peer Overview
+# Change to your needs, this will be displayed in Peer Overview, modify this to whatever you want.
 P2P.myPlatform=Official burst.megash.it TestNET Node
-DEV.P2P.MaxConnections=100
 # Enable/Disable API requests used for blockchain and database manipulation.
 #API.Debug=false
 
