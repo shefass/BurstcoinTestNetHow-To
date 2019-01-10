@@ -34,7 +34,7 @@ DEV.TimeWarp = 1
 
 #Peers used for testnet only.
 
-DEV.P2P.BootstrapPeers = 3.16.150.48; testnet.burst.fun
+DEV.P2P.BootstrapPeers = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun
 
 #Testnet only. These peers will always be sent rebroadcast transactions. They are also automatically added to 
 
