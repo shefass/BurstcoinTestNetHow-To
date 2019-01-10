@@ -8,103 +8,89 @@ If you wish to be added as a peer to the testnet simply fork and create a Pull R
 For those that would also like to mine while running a node to help with a developer faucet on the test net. Then please create a new id, sync your peer, and start solo mining to your localhost(port 6876). Currently there is no mining pool on the test net if someone is interested in starting a small pool on the testnet, it would be greatly appreciated. If you want to add information to this page, please submit a pull request with desired changes. 
 
 
-Edit the following in conf/brs-default.properties: 
+Edit/add the following in conf/brs.properties: 
+````
+#### DATABASE ####
+# For MariaDB
+#DEV.DB.Url=jdbc:mariadb://localhost:3306/DatabaseName
+DEV.DB.Username=DatabaseUser
+DEV.DB.Password=somepassword
+DEV.DB.Connections=10
 
-
-
+#### TestNet Settings ####
+# Use testnet, leave set to false unless you are really testing.
+# Never unlock your real accounts on testnet! Use separate accounts for testing only.
+# When using testnet, all custom port settings will be ignored,
+# and hardcoded ports of 6874 (peer networking), 6875 (UI) and 6876 (API) will be used.
 DEV.Offline = no
-
-#Use testnet, leave set to false unless you are really testing.
-#Never unlock your real accounts on testnet! Use separate accounts for testing only.
-#When using testnet, all custom port settings will be ignored,
-#and hardcoded ports of 6874 (peer networking), 6875 (UI) and 6876 (API) will be used.
 DEV.TestNet = yes
-
-#Database connection JDBC url to use with the test network, if DEV.TestNet
-
-DEV.DB.Url = jdbc:mariadb://localhost:3306/burstwalletdev
-
-DEV.DB.Username = burstwallet
-
-DEV.DB.Password = easypassword
-
-#Time Acceleration in Offline/TestNet configurations (1 = normal time, 2 = twice as fast ...)
-
+# Time Acceleration in Offline/TestNet configurations (1 = normal time, 2 = twice as fast ...)
 DEV.TimeWarp = 1
+# Force winning with every deadline
+DEV.mockMining = off
+DEV.preDymaxion.startBlock = 0
+DEV.poc2.startBlock = 0
+DEV.digitalGoodsStore.startBlock = 0
+DEV.automatedTransactions.startBlock = 0
+DEV.atFixBlock2.startBlock = 0
+DEV.atFixBlock3.startBlock = 0
+DEV.atFixBlock4.startBlock = 0
+DEV.P2P.NumBootstrapConnections = 1
+BRS.allowedBotHosts = *
+# Only use this Hosts if you really want to use the testnet!!!
+DEV.P2P.BootstrapPeers = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com; test-burst.megash.it
+DEV.P2P.rebroadcastTo = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com; test-burst.megash.it
+# Allow the wallet to discover new peers, store them in the DB and reuse them after restart.
+P2P.savePeers=true
+P2P.usePeersDb=true
+P2P.getMorePeers=true
 
-#Peers used for testnet only.
+#### Personal Customization ####
+P2P.shareMyAddress=true
+# our examples are aya.onthewifi.com OR testnet.burst.fun OR testddns.gotdns.com OR test-burst.megash.it
+P2P.myAddress=fqdn.to.your.wallet
+DEV.P2P.Port=8123
+DEV.P2P.Listen=::
+# Change to your needs, this will be displayed in Peer Overview
+P2P.myPlatform=Official burst.megash.it TestNET Node
+DEV.P2P.MaxConnections=100
+# Enable/Disable API requests used for blockchain and database manipulation.
+#API.Debug=false
 
-DEV.P2P.BootstrapPeers = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com
 
-#Testnet only. These peers will always be sent rebroadcast transactions. They are also automatically added to 
-
-DEV.P2P.BootstrapPeers, so no need for duplicates.
-
-DEV.P2P.rebroadcastTo = 3.16.150.48; aya.onthewifi.com; testnet.burst.fun; testddns.gotdns.com
-
-#Force winning with every deadline
-
-DEV.mockMining = ooff
-
-#Enter a version. Upon exit, print a list of peers having this version.
-
+#### Additional Stuff ####
+# Enter a version. Upon exit, print a list of peers having this version.
 DEV.dumpPeersVersion =
-
-#Force re-validation of blocks and transaction at start.
-
+# Force re-validation of blocks and transaction at start.
 DEV.forceValidate = off
-
-#Force re-build of derived objects tables at start.
-
+# Force re-build of derived objects tables at start.
 DEV.forceScan = off
 
-DEV.P2P.NumBootstrapConnections = 1
 
-BRS.allowedBotHosts = *
-
-DEV.digitalGoodsStore.startBlock = 0
-
-DEV.automatedTransactions.startBlock = 0
-
-DEV.atFixBlock2.startBlock = 0
-
-DEV.atFixBlock3.startBlock = 0
-
-DEV.atFixBlock4.startBlock = 0
-
-DEV.preDymaxion.startBlock = 0
-
-DEV.poc2.startBlock = 0
+````
 
 If you just need testnet wallet for testing please use this link (http://3.16.150.48:6876/index.html#). If you want to use your own desired peer, you can just change ip addresses. 
 
 
 To make your peer public you will need to change the following in your properties file.
-
+````
 #API network 
-
 API.Port = 8125 
-
 API.Listen = 0.0.0.0
-
 API.allowed = *;0.0.0.0
-
+````
 If for any reason you need to reset your peer, a fast easy way to do it is as follows:
 
 Stop node, in a terminal execute:
-
+````
 mysql -u root
-
-#Once in the mysql shell execute the following commands, assumption is made $yourdb name is your database's name and $youruser is well your user.
-
-drop database $yourdatabase;
-
-create database $yourdatabase;
-
-GRANT ALL PRIVILEGES ON $yourdatabase.* TO '$youruser'@'localhost’;
-
+````
+Once in the mysql shell execute the following commands, assumption is made $yourdb name is your database's name and $youruser is well your user.
+````
+DROP DATABASE $yourdatabase;
+CREATE DATABASE $yourdatabase;
 ALTER DATABASE $yourdatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
+````
 Start node again, wait till sync is complete. 
 
 If you hit any snags, let me know. Also feel free to update this via PR. Thanks.
