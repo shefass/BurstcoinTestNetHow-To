@@ -68,6 +68,7 @@ DEV.forceScan = off
 
 If you just need testnet wallet for testing please use this link (http://3.16.150.48:6876/index.html#). If you want to use your own desired peer, you can just change ip addresses. 
 
+You can get the testnet coins at this faucet (http://burstcoin.cc:7777/)
 
 If for any reason you need to reset your peer, a fast easy way to do it is as follows:
 
